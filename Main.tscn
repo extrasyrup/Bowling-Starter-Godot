@@ -1,0 +1,118 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Pins_55.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Models/Ball - Test.dae" type="PackedScene" id=2]
+[ext_resource path="res://GUI_Main.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://Ball.gd" type="Script" id=5]
+[ext_resource path="res://Environments/Space.tres" type="Environment" id=6]
+[ext_resource path="res://Images/Godot_icon.svg" type="Texture" id=7]
+[ext_resource path="res://Models/Alley - Test 2.dae" type="PackedScene" id=8]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.01
+
+[sub_resource type="SphereShape" id=2]
+margin = 1.0
+
+[sub_resource type="PhysicsMaterial" id=3]
+rough = true
+
+[sub_resource type="BoxShape" id=4]
+margin = 1.0
+
+[sub_resource type="BoxShape" id=5]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 1, 1, 1, 0 )
+albedo_texture = ExtResource( 7 )
+
+[sub_resource type="PlaneMesh" id=7]
+material = SubResource( 6 )
+
+[node name="Root" type="Node"]
+script = ExtResource( 4 )
+
+[node name="GUI" parent="." instance=ExtResource( 3 )]
+
+[node name="Node_Camera" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.058, 5.00111, 0 )
+__meta__ = {
+"_editor_description_": "Position controlled by ball's RemoteTransform."
+}
+
+[node name="Camera_Ball" type="Camera" parent="Node_Camera"]
+transform = Transform( -1.62921e-07, 0.34202, -0.939693, 0, 0.939693, 0.34202, 1, 5.57221e-08, -1.53095e-07, -6, 4, 0 )
+current = true
+far = 120.0
+
+[node name="Ball" type="RigidBody" parent="."]
+transform = Transform( 1.01511, 0, 0, 0, 1.01511, 0, 0, 0, 1.01511, -45.058, 5.00111, 0 )
+mass = 0.55
+physics_material_override = SubResource( 1 )
+contact_monitor = true
+script = ExtResource( 5 )
+
+[node name="RemoteTransform" type="RemoteTransform" parent="Ball"]
+remote_path = NodePath("../../Node_Camera")
+update_rotation = false
+update_scale = false
+__meta__ = {
+"_editor_description_": "Controls cameras follow without it rotating like the ball."
+}
+
+[node name="Import - Ball" parent="Ball" instance=ExtResource( 2 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ball"]
+shape = SubResource( 2 )
+
+[node name="Alley_50by50" parent="." instance=ExtResource( 8 )]
+
+[node name="StaticBody" type="StaticBody" parent="Alley_50by50"]
+physics_material_override = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Alley_50by50/StaticBody"]
+transform = Transform( 50, 0, 0, 0, 0.1, 0, 0, 0, 50, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Pins_55" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 31.021, 2.1, -1.98911 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 6 )
+
+[node name="Camera_Trigger" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16843, 10.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Camera_Trigger"]
+transform = Transform( 0.0978993, 0, 0, 0, 9.78992, 0, 0, 0, 48.9496, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="Light_Behind" type="SpotLight" parent="."]
+transform = Transform( 0.707107, 3.09086e-08, -0.707107, 0.707107, -3.09086e-08, 0.707107, 0, -1, -4.37114e-08, -50.1206, 36.0035, 0 )
+shadow_enabled = true
+shadow_color = Color( 0.701961, 0.701961, 0.701961, 1 )
+spot_range = 221.3
+
+[node name="Light_Spot_1" type="SpotLight" parent="."]
+transform = Transform( 0.866025, 2.18557e-08, -0.5, 0.5, -3.78552e-08, 0.866025, 0, -1, -4.37114e-08, 15.8472, 20, 0 )
+light_color = Color( 0.603734, 0.254059, 0.867188, 1 )
+light_energy = 3.04
+spot_range = 34.5
+spot_angle = 29.8
+
+[node name="Light_Spot_2" type="SpotLight" parent="."]
+transform = Transform( 0.707107, -3.09086e-08, 0.707107, -0.707107, -3.09086e-08, 0.707107, 0, -1, -4.37114e-08, 68.1309, 16.9308, 0 )
+light_color = Color( 0.32549, 0, 0.803922, 1 )
+light_energy = 16.0
+spot_range = 52.9
+spot_angle = 25.8
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1.91069e-15, -1, 4.37114e-08, -5.34027e-07, -5.34027e-07, -12.2171, 12.2171, 0, -5.34027e-07, 50.1479, 11.4883, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+[connection signal="body_entered" from="Ball" to="." method="_on_Ball_body_entered"]
+[connection signal="input_event" from="Ball" to="Ball" method="_on_Ball_input_event"]
+[connection signal="area_entered" from="Camera_Trigger" to="." method="_on_Area_area_entered"]
+[connection signal="body_entered" from="Camera_Trigger" to="." method="_on_Area_body_entered"]

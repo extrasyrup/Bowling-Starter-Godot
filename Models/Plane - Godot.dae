@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.79.0 commit date:2018-03-22, commit time:14:10, hash:f4dc9f9d68b</authoring_tool>
+    </contributor>
+    <created>2020-05-12T09:43:19</created>
+    <modified>2020-05-12T09:43:19</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images>
+    <image id="Godot_icon_png" name="Godot_icon_png">
+      <init_from>Godot_icon.png</init_from>
+    </image>
+  </library_images>
+  <library_effects>
+    <effect id="flat-wood-texture-seamless-vector-2766324_jpg-effect">
+      <profile_COMMON>
+        <newparam sid="flat-wood-texture-seamless-vector-2766324_jpg-surface">
+          <surface type="2D">
+            <init_from>flat-wood-texture-seamless-vector-2766324_jpg</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="flat-wood-texture-seamless-vector-2766324_jpg-sampler">
+          <sampler2D>
+            <source>flat-wood-texture-seamless-vector-2766324_jpg-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <texture texture="flat-wood-texture-seamless-vector-2766324_jpg-sampler" texcoord="flat-wood-texture-seamless-vector-2766324_jpg"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0 0 0 1</color>
+            </specular>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="Godot_icon_png-effect">
+      <profile_COMMON>
+        <newparam sid="Godot_icon_png-surface">
+          <surface type="2D">
+            <init_from>Godot_icon_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="Godot_icon_png-sampler">
+          <sampler2D>
+            <source>Godot_icon_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <texture texture="Godot_icon_png-sampler" texcoord="Godot_icon_png"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0 0 0 1</color>
+            </specular>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="temp-score-board_jpg-effect">
+      <profile_COMMON>
+        <newparam sid="temp-score-board_jpg-surface">
+          <surface type="2D">
+            <init_from>temp-score-board_jpg</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="temp-score-board_jpg-sampler">
+          <sampler2D>
+            <source>temp-score-board_jpg-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <texture texture="temp-score-board_jpg-sampler" texcoord="temp-score-board_jpg"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0 0 0 1</color>
+            </specular>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="flat-wood-texture-seamless-vector-2766324_jpg-material" name="flat-wood-texture-seamless-vector-2766324_jpg">
+      <instance_effect url="#flat-wood-texture-seamless-vector-2766324_jpg-effect"/>
+    </material>
+    <material id="Godot_icon_png-material" name="Godot_icon_png">
+      <instance_effect url="#Godot_icon_png-effect"/>
+    </material>
+    <material id="temp-score-board_jpg-material" name="temp-score-board_jpg">
+      <instance_effect url="#temp-score-board_jpg-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Plane_001-mesh" name="Plane.001">
+      <mesh>
+        <source id="Plane_001-mesh-positions">
+          <float_array id="Plane_001-mesh-positions-array" count="12">-1 -1 0 1 -1 0 -1 1 0 1 1 0</float_array>
+          <technique_common>
+            <accessor source="#Plane_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_001-mesh-normals">
+          <float_array id="Plane_001-mesh-normals-array" count="3">0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Plane_001-mesh-normals-array" count="1" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_001-mesh-map-0">
+          <float_array id="Plane_001-mesh-map-0-array" count="12">0.9920441 7.90358e-5 0.004263401 0.999921 0.00426346 7.90358e-5 0.9920441 7.90358e-5 0.9920441 0.999921 0.004263401 0.999921</float_array>
+          <technique_common>
+            <accessor source="#Plane_001-mesh-map-0-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Plane_001-mesh-vertices">
+          <input semantic="POSITION" source="#Plane_001-mesh-positions"/>
+        </vertices>
+        <triangles material="Godot_icon_png-material" count="2">
+          <input semantic="VERTEX" source="#Plane_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Plane_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Plane_001-mesh-map-0" offset="2" set="0"/>
+          <p>1 0 0 2 0 1 0 0 2 1 0 3 3 0 4 2 0 5</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Plane_001" name="Plane_001" type="NODE">
+        <matrix sid="transform">-1.97504e-7 1.97504e-7 4.518364 -46.32619 4.518364 8.63317e-15 1.97504e-7 -3.503329 0 4.518364 -1.97504e-7 13.72241 0 0 0 1</matrix>
+        <instance_geometry url="#Plane_001-mesh" name="Plane_001">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Godot_icon_png-material" target="#Godot_icon_png-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

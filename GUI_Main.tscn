@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://GUI_Main.gd" type="Script" id=1]
+[ext_resource path="res://Images/undo-solid.svg" type="Texture" id=2]
+
+
+[node name="GUI" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ball_Push" type="Button" parent="."]
+margin_left = 568.0
+margin_top = 704.0
+margin_right = 632.0
+margin_bottom = 728.0
+text = "Push"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ball_Move_Left" type="Button" parent="."]
+margin_left = 512.0
+margin_top = 704.0
+margin_right = 552.0
+margin_bottom = 728.0
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ball_Move_Right" type="Button" parent="."]
+margin_left = 728.0
+margin_top = 704.0
+margin_right = 768.0
+margin_bottom = 728.0
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ball_Jump" type="Button" parent="."]
+margin_left = 648.0
+margin_top = 704.0
+margin_right = 712.0
+margin_bottom = 728.0
+text = "Jump"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game_Restart" type="Button" parent="."]
+margin_left = 1136.0
+margin_top = 712.0
+margin_right = 1216.0
+margin_bottom = 736.0
+text = " Restart"
+icon = ExtResource( 2 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Ball_Push" to="." method="_on_Ball_Push_button_down"]
+[connection signal="button_down" from="Ball_Move_Left" to="." method="_on_Ball_Move_Left_button_down"]
+[connection signal="button_down" from="Ball_Move_Right" to="." method="_on_Ball_Move_Right_button_down"]
+[connection signal="button_down" from="Ball_Jump" to="." method="_on_Ball_Jump_button_down"]
+[connection signal="button_down" from="Game_Restart" to="." method="_on_Game_Restart_button_down"]
