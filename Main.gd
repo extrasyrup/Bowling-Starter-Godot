@@ -16,6 +16,8 @@ func _on_Area_body_entered(body):
 	#Trigger camera change when ball reaches this area
 	print ("Camera Trigger Entered")
 	var node_pins_cam = get_node("Pins_55/Camera") #Reference to camera in case more manipulation is needed
+	var node_cam_anim = get_node("Pins_55/AnimationPlayer")
+	node_cam_anim.play("Smash Cam 1")
 	node_pins_cam.set_current(true) #Set pin cam to current active (no longer follow the ball)
 
 func _on_Ball_body_entered(body):
