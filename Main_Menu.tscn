@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Environments/Space.tres" type="Environment" id=1]
 [ext_resource path="res://Models/Ball - Sun.dae" type="PackedScene" id=2]
@@ -10,13 +10,19 @@
 [ext_resource path="res://Models/Ball - Earth Day.gd" type="Script" id=8]
 [ext_resource path="res://Models/Ball - Earth Night.gd" type="Script" id=9]
 [ext_resource path="res://Models/Ball - Sun.gd" type="Script" id=10]
-[ext_resource path="res://Models/Ball - Mercury.gd" type="Script" id=11]
+[ext_resource path="res://Models/Ball - Main Menu.gd" type="Script" id=11]
 [ext_resource path="res://Images/power-off-solid.svg" type="Texture" id=12]
 [ext_resource path="res://Sounds/gurdonark_-_Memories_of_Better_Times.ogg" type="AudioStream" id=13]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="SphereShape" id=2]
+
+[sub_resource type="SphereShape" id=3]
+
+[sub_resource type="SphereShape" id=4]
+
+[sub_resource type="SphereShape" id=5]
 
 [node name="Node" type="Node"]
 script = ExtResource( 7 )
@@ -60,21 +66,30 @@ environment = ExtResource( 1 )
 transform = Transform( 0.996323, -0.0856778, 0, 0.0856778, 0.996323, 0, 0, 0, 1, 0, 0, 1.5 )
 script = ExtResource( 8 )
 
-[node name="Ball - Mercury" type="RigidBody" parent="." instance=ExtResource( 3 )]
+[node name="CollisionShape" type="CollisionShape" parent="Ball - Earth Day"]
+shape = SubResource( 2 )
+
+[node name="Ball - Mercury" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.99917, -0.0407247, 0, 0.0407247, 0.99917, 0, 0, 0, 1, 0, 2, -3.9961 )
 mode = 1
 script = ExtResource( 11 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ball - Mercury"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Ball - Sun" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.997505, -0.0705922, 0, 0.0705922, 0.997505, 0, 0, 0, 1, 0, 2, 4 )
 script = ExtResource( 10 )
 
+[node name="CollisionShape" type="CollisionShape" parent="Ball - Sun"]
+shape = SubResource( 4 )
+
 [node name="Ball - Earth Night" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.994243, -0.107149, 0, 0.107149, 0.994243, 0, 0, 0, 1, 0, 0, -1.5 )
 script = ExtResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ball - Earth Night"]
+shape = SubResource( 5 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -4.2222e-08, 0.258819, -0.965926, 1.13133e-08, 0.965926, 0.258819, 1, 8.88178e-16, -4.37114e-08, -14.8476, 8.5466, 0 )
@@ -86,4 +101,4 @@ transform = Transform( -2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -7, 2.3
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 [connection signal="button_down" from="GUI/Button" to="." method="_on_Button_button_down"]
-[connection signal="input_event" from="Ball - Mercury" to="Ball - Mercury" method="_on_Ball__Mercury_input_event"]
+[connection signal="input_event" from="Ball - Mercury" to="Ball - Mercury" method="_on_Ball_Main_Menu_input_event"]
