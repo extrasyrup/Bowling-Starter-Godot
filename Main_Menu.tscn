@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Environments/Space.tres" type="Environment" id=1]
 [ext_resource path="res://Models/Ball - Sun.dae" type="PackedScene" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://Models/Ball - Earth Night.gd" type="Script" id=9]
 [ext_resource path="res://Models/Ball - Sun.gd" type="Script" id=10]
 [ext_resource path="res://Models/Ball - Mercury.gd" type="Script" id=11]
+[ext_resource path="res://Images/power-off-solid.svg" type="Texture" id=12]
+[ext_resource path="res://Sounds/gurdonark_-_Memories_of_Better_Times.ogg" type="AudioStream" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=1]
 
 [node name="Node" type="Node"]
 script = ExtResource( 7 )
@@ -35,10 +39,14 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="GUI"]
 margin_left = 576.0
-margin_top = 368.0
+margin_top = 336.0
 margin_right = 704.0
-margin_bottom = 432.0
-text = "PLAY"
+margin_bottom = 464.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 1 )
+icon = ExtResource( 12 )
+flat = true
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -68,4 +76,7 @@ light_energy = 2.0
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -7, 2.3, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
 [connection signal="button_down" from="GUI/Button" to="." method="_on_Button_button_down"]

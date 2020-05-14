@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gurdonark_-_Memories_of_Better_Times.ogg-61f4b130c3260788b088dfc58c102018.oggstr"
+
+[deps]
+
+source_file="res://Sounds/gurdonark_-_Memories_of_Better_Times.ogg"
+dest_files=[ "res://.import/gurdonark_-_Memories_of_Better_Times.ogg-61f4b130c3260788b088dfc58c102018.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

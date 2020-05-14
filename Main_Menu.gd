@@ -1,7 +1,8 @@
 extends Node
 
 func _ready():
-	pass # Replace with function body.
+	var default_audio_stream = get_node("AudioStreamPlayer")
+	default_audio_stream.play()
 
 func _on_Button_button_down():
 	#Start game
