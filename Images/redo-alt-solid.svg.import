@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/undo-solid.svg-cab57e09b15392dc9ac97a765ac2376d.stex"
+path="res://.import/redo-alt-solid.svg-3862e2ecdb4844cc19c407bcfe660004.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/undo-solid.svg"
-dest_files=[ "res://.import/undo-solid.svg-cab57e09b15392dc9ac97a765ac2376d.stex" ]
+source_file="res://Images/redo-alt-solid.svg"
+dest_files=[ "res://.import/redo-alt-solid.svg-3862e2ecdb4844cc19c407bcfe660004.stex" ]
 
 [params]
 

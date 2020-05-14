@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Pins_ML.tres" type="MeshLibrary" id=1]
+
+[node name="Grid_Pins" type="Spatial"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+cell_size = Vector3( 0.8, 0.8, 0.8 )
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PoolIntArray( 1, 0, 262144, 3, 0, 537133056, 65533, 0, 537133056, 65535, 0, 537133056, 0, 2, 262144, 2, 2, 537133056, 65534, 2, 262144, 1, 4, 537133056, 65535, 4, 262144, 0, 6, 262144, 0, 65534, -1610350592, 2, 65534, 262144, 4, 65534, 537133056, 65532, 65534, 262144, 65534, 65534, 537133056 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, -1, 0 )
+}

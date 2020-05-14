@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.79.0 commit date:2018-03-22, commit time:14:10, hash:f4dc9f9d68b</authoring_tool>
     </contributor>
-    <created>2020-05-11T17:47:37</created>
-    <modified>2020-05-11T17:47:37</modified>
+    <created>2020-05-13T00:10:16</created>
+    <modified>2020-05-13T00:10:16</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -115,9 +115,9 @@
   <library_controllers/>
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
-      <node id="BezierCurve_001" name="BezierCurve_001" type="NODE">
-        <matrix sid="transform">1 0 0 0 0 -1.62921e-7 -1 0 0 1 -1.62921e-7 0 0 0 0 1</matrix>
-        <instance_geometry url="#Mesh-mesh" name="BezierCurve_001">
+      <node id="Pin" name="Pin" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 -1.62578e-7 -1 0 0 0.9978951 -1.62921e-7 0 0 0 0 1</matrix>
+        <instance_geometry url="#Mesh-mesh" name="Pin">
           <bind_material>
             <technique_common>
               <instance_material symbol="Strip-material" target="#Strip-material"/>
