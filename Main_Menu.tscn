@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Environments/Space.tres" type="Environment" id=1]
 [ext_resource path="res://Models/Ball - Sun.dae" type="PackedScene" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://Sounds/gurdonark_-_Memories_of_Better_Times.ogg" type="AudioStream" id=13]
 
 [sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="SphereShape" id=2]
 
 [node name="Node" type="Node"]
 script = ExtResource( 7 )
@@ -58,9 +60,13 @@ environment = ExtResource( 1 )
 transform = Transform( 0.996323, -0.0856778, 0, 0.0856778, 0.996323, 0, 0, 0, 1, 0, 0, 1.5 )
 script = ExtResource( 8 )
 
-[node name="Ball - Mercury" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.99917, -0.0407247, 0, 0.0407247, 0.99917, 0, 0, 0, 1, 0, 2, -4 )
+[node name="Ball - Mercury" type="RigidBody" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.99917, -0.0407247, 0, 0.0407247, 0.99917, 0, 0, 0, 1, 0, 2, -3.9961 )
+mode = 1
 script = ExtResource( 11 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ball - Mercury"]
+shape = SubResource( 2 )
 
 [node name="Ball - Sun" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.997505, -0.0705922, 0, 0.0705922, 0.997505, 0, 0, 0, 1, 0, 2, 4 )
@@ -80,3 +86,4 @@ transform = Transform( -2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -7, 2.3
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 [connection signal="button_down" from="GUI/Button" to="." method="_on_Button_button_down"]
+[connection signal="input_event" from="Ball - Mercury" to="Ball - Mercury" method="_on_Ball__Mercury_input_event"]
